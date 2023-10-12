@@ -1,5 +1,7 @@
 import pytest
 
+from lab2.ex10 import get_translation_candidates
+from lab2.ex11 import get_substring_indices
 from lab2.ex5 import calculate_hamming_distance
 from lab2.ex6 import longest_common_substring
 from lab2.ex7 import transition_transvertion_ration
@@ -46,4 +48,21 @@ def test_string_graph():
     output = get_string_graph(fasta_input, k=3)
     expected = [('Rosalind_0498', 'Rosalind_2391'), ('Rosalind_0498', 'Rosalind_0442'),
                 ('Rosalind_2391', 'Rosalind_2323')]
+    assert output == expected
+
+
+def test_translation_candidates():
+    with open('../inputs/lab2/test_input_ex10.txt', 'r') as file:
+        fasta_input = file.read()
+
+    output = get_translation_candidates(fasta_input)
+    expected = ['MLLGSFRLIPKETLIQVAGSSPCNLS', 'M', 'MGMTPRLGLESLLE', 'MTPRLGLESLLE']
+    assert output == expected
+
+
+def test_substring_indices():
+    string = 'GATATATGCATATACTT'
+    substring = 'ATAT'
+    expected = [2, 4, 10]
+    output = get_substring_indices(string, substring)
     assert output == expected
