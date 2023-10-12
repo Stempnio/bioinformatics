@@ -1,6 +1,4 @@
-from io import StringIO
-
-from Bio import SeqIO
+from utils.fasta_utils import parse_fasta_string
 
 
 def get_all_substrings(input_string):
@@ -12,11 +10,7 @@ def get_all_substrings(input_string):
 
 
 def longest_common_substring(fasta_string):
-    fasta_io = StringIO(fasta_string)
-
-    records = SeqIO.parse(fasta_io, "fasta")
-
-    dna_strings = [str(record.seq) for record in records]
+    dna_strings = parse_fasta_string(fasta_string)
 
     first_string = dna_strings[0]
     substrings = get_all_substrings(first_string)
