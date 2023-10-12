@@ -1,8 +1,8 @@
-from utils.fasta_utils import parse_fasta_string
+from utils.fasta_utils import get_dna_from_fasta
 
 
 def transition_transvertion_ration(fasta_string):
-    dna_strings = parse_fasta_string(fasta_string)
+    dna_strings = get_dna_from_fasta(fasta_string)
 
     transitions = 0
     transversions = 0

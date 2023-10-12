@@ -1,6 +1,9 @@
+import pytest
+
 from lab2.ex5 import calculate_hamming_distance
 from lab2.ex6 import longest_common_substring
 from lab2.ex7 import transition_transvertion_ration
+from lab2.ex8 import get_highest_gc_content
 
 
 def test_hamming_distance():
@@ -24,4 +27,12 @@ def test_transition_transvertion_ratio():
         fasta_input = file.read()
     output = transition_transvertion_ration(fasta_input)
     expected = 1.21428571429
-    assert output == expected
+    assert expected == pytest.approx(output)
+
+
+def test_highest_gc_content():
+    with open('inputs/lab2/test_input_ex8.txt', 'r') as file:
+        fasta_input = file.read()
+    output = get_highest_gc_content(fasta_input)
+    expected = ('Rosalind_0808', 60.919540)
+    assert expected == pytest.approx(output)

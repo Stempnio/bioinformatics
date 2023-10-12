@@ -1,4 +1,4 @@
-from utils.fasta_utils import parse_fasta_string
+from utils.fasta_utils import get_dna_from_fasta
 
 
 def get_all_substrings(input_string):
@@ -10,7 +10,7 @@ def get_all_substrings(input_string):
 
 
 def longest_common_substring(fasta_string):
-    dna_strings = parse_fasta_string(fasta_string)
+    dna_strings = get_dna_from_fasta(fasta_string)
 
     first_string = dna_strings[0]
     substrings = get_all_substrings(first_string)
