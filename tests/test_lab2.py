@@ -52,11 +52,11 @@ def test_string_graph():
 
 
 def test_translation_candidates():
-    with open('../inputs/lab2/test_input_ex10.txt', 'r') as file:
+    with open('inputs/lab2/test_input_ex10.txt', 'r') as file:
         fasta_input = file.read()
 
     output = get_translation_candidates(fasta_input)
-    expected = ['MLLGSFRLIPKETLIQVAGSSPCNLS', 'M', 'MGMTPRLGLESLLE', 'MTPRLGLESLLE']
+    expected = {'MLLGSFRLIPKETLIQVAGSSPCNLS', 'M', 'MGMTPRLGLESLLE', 'MTPRLGLESLLE'}
     assert output == expected
 
 
