@@ -1,0 +1,30 @@
+*Zadanie 3*
+Alignment----------------------------------
+title: gi|2516460657|ref|XM_057300173.1| PREDICTED: Pan paniscus BRCA1 DNA repair associated (BRCA1), transcript variant X6, mRNA
+length: 7199
+HSP :
+e value: 0.0
+GTACCTTGATTTCGTATTCTGAGAGGCTGCTGCTTAGCGGTAGCCCCTTGGTTTCCGTGGCAACGGAAAAGCGCG...
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||...
+GTACCTTGATTTCGTATTCTGAGAGGCTGCTGCTTAGCGGTAGCCCCTTGGTTTCCGTGGCAACGGAAAAGCGCG...
+Pochodzi z genu BRCA1
+*Zadanie 4*
+Alignment----------------------------------
+title: ref|NP_149421.2| cannabinoid receptor 1 isoform b [Homo sapiens] >ref|XP_011839841.1| PREDICTED: cannabinoid receptor 1 isoform X2 [Mandrillus leucophaeus] >ref|XP_025238412.1| cannabinoid receptor 1 isoform X2 [Theropithecus gelada] >ref|XP_030785377.1| cannabinoid receptor 1 isoform X2 [Rhinopithecus roxellana] >ref|XP_055114358.1| cannabinoid receptor 1 isoform X2 [Symphalangus syndactylus] >gb|PNI87957.1| CNR1 isoform 7 [Pan troglodytes] >gb|PNJ60190.1| CNR1 isoform 5 [Pongo abelii] >gb|AAV35030.1| cannabinoid receptor 1 splice variant CB1b [Homo sapiens] >gb|AGW25490.1| cannabinoid receptor 1 transcript variant 2 [Homo sapiens] >gb|KAI2543137.1| cannabinoid receptor 1 [Homo sapiens]
+length: 439
+HSP :
+e value: 0.0
+MKSILDGLADTTFRTITTDLLGSPFQEKMTAGDNPQLVPADQVNITEFYNKSLSSFKENEENIQCGENFMDIECF...
+MKSILDGLADTTFRTITTDLLGSPFQEKMTAGDNPQLVPADQVNITEFYNKSLSSFKENEENIQCGENFMDIECF...
+MKSILDGLADTTFRTITTDLLGSPFQEKMTAGDNPQLVPADQVNITEFYNKSLSSFKENEENIQCGENFMDIECF...
+CNR1 - Cannabinoid receptor 1
+Rola białka:
+odpowiada za kontrolę apetytu oraz pamięć i przetwarzanie emocji
+Występuje na chromosomie 6
+Mandrillus leucophaeus - Mandryl równikowy
+Theropithecus gelada - Dżelada brunatna
+Rhinopithecus roxellana - Rokselana złocista
+Symphalangus syndactylus - Siamang wielki
+Pan troglodytes - Szympans zwyczajny
+*Zadanie 5*
+Rhodopsin sequence:  AAGTTTGAGAATGAAGATCGTNTGCNTTGGTGCTGCACCAACGGNTCTCGGAGCTNCCTACCGGCTCAATGAGCTCAAAAACGAGGGAAACGAGGCTGCTCAAAACGCTGANATTGTTCTTCTTGAACAGGAGGCNATTNCTGGNGGNCTCTCCTGCACTGTAACCGNTGAGAAAGGTTTCCTCTGGGATATGGGAGGTNATATCACTTTCAATCACAACTACCCATACTACGAGAAGGCTACTCAATGGGCTGTTGATGACTGGAATAAGTTGGCAAGAAACTGTATGGTTGATATGA
