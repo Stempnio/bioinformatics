@@ -1,0 +1,13 @@
+name: bio
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - biopython
+  - pandas
+  - matplotlib
+  - numpy
+  - pip
+  - pip:
+    - pylcs
