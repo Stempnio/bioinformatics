@@ -81,3 +81,7 @@ if __name__ == '__main__':
     print('PC2:', pc2)
     transformed_data = project_data(normalized_df, pc1, pc2)
     plot_data(transformed_data, aminoacid_names)
+    print('Aminokwasy znajdujące się blisko siebie na wykresie mają podobne właściwości.')
+    print('Przykładowo')
+    print(' - aminokwasy F,L oraz I są umieszczone blisko siebie, co wskazuje na podobieństwo właściwości.')
+    print(' - aminokwasy R i C są od siebie bardzo odległe, może odzwierciedlać ich odmienne właściwości.')
