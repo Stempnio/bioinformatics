@@ -53,7 +53,7 @@ def get_jpred_prediction(job_id):
     results_path = get_jpred_result_path(job_id)
     with open(results_path, 'r') as file:
         lines = file.readlines()
-        return lines[1].split(':')[1].strip()
+        return lines[1].split(':')[1].replace(',', '')
 
 
 def get_segment_lengths(secondary_structure):
