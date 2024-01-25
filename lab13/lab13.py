@@ -4,6 +4,7 @@ import time
 import jpredapi
 import re
 from itertools import groupby
+from scipy.stats import ttest_ind
 
 
 def generate_random_sequences(original_seq, result_length):
@@ -69,40 +70,35 @@ def count_structure_elements(secondary_structure):
     return secondary_structure.count('H') + secondary_structure.count('E')
 
 
-def verify_hypothesis(original_sequence, secondary_structure):
-    original_count = count_structure_elements(secondary_structure)
-    original_avg_length = get_avg_segment_length(secondary_structure)
-
+def verify_hypothesis(original_sequence, original_structure):
     random_sequences_count = 6
     random_sequences = generate_random_sequences(original_sequence, random_sequences_count)
 
-    true_count = 0
+    original_element_count = count_structure_elements(original_structure)
+    original_avg_length = get_avg_segment_length(original_structure)
+
+    random_element_counts = []
+    random_avg_lengths = []
 
     for sequence in random_sequences:
         job_id = submit_sequence_to_jpred(sequence)
         await_jpred_result(job_id)
         prediction = get_jpred_prediction(job_id)
-        pred_count = count_structure_elements(prediction)
 
-        pred_avg_length = get_avg_segment_length(prediction)
+        random_element_counts.append(count_structure_elements(prediction))
+        random_avg_lengths.append(get_avg_segment_length(prediction))
 
-        if pred_count < original_count or pred_avg_length < original_avg_length:
-            print('Hypothesis confirmed')
-            true_count += 1
-        else:
-            print('Hypothesis not confirmed')
+    t_test_elements = ttest_ind(original_element_count, random_element_counts)
+    t_test_lengths = ttest_ind(original_avg_length, random_avg_lengths)
 
-        print(f'Original Secondary Structure Element Count: {original_count}')
-        print(f'Predicted Secondary Structure Element Count: {pred_count}')
-        print(f'Original Average Length of Each Secondary Structure Element: {original_avg_length}')
-        print(f'Predicted Average Length of Each Secondary Structure Element: {pred_avg_length}')
-        print('------------------------------')
-
-    print(f'Hypothesis confirmed in {true_count} out of {random_sequences_count} cases')
+    if t_test_elements.pvalue < 0.05 or t_test_lengths.pvalue < 0.05:
+        print("Hypothesis confirmed - differences statistically significant")
+    else:
+        print("Hypothesis not confirmed - differences not statistically significant")
 
 
 if __name__ == '__main__':
     myoglobin_sequence = "MGLSDGEWQLVLNVWGKVEADIPGHGQEVLIRLFKGHPETLEKFDKFKHLKSEDEMKASEDLKKHGATVLTALGGILKKKGHHEAEIKPLAQSHATKHKIPVKYLEFISECIIQVLQSKHPGDFGADAQGAMNKALELFRKDMASNYKELGFQG"
-    secondary_structure = "----HHHHHHHHHHHHHH---HHHHHHHHHHHHHHH-----------------------HHHHHHHHHHHHHHHHH------HHHHHHHHHHHHHH--------HHHHHHHHHHHHHHH------HHHHHHHHHHHHHHHHHHHHHHHHH----"
+    secondary_structure = "--HHHHHHHHHHHHHHHHHH--HHHHHHHHHHHHHHHHHHH------------------------------HHHHHHHHHHHHHHHHHHHHHHHH--H---HHHHHHHHHHHHHHHHHHH----HHHHHHHHHHHHHHHHHHHHHHHHHHH--"
 
     verify_hypothesis(myoglobin_sequence, secondary_structure)
